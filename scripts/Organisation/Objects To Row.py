@@ -80,5 +80,5 @@ bpy.utils.register_class(ObjectSpacingOperator)
 def unregister():
     bpy.utils.unregister_class(ObjectSpacingOperator)
 
-# Prompt the user with the operator
+# test call
 bpy.ops.object.spacing_operator('INVOKE_DEFAULT')

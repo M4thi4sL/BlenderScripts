@@ -44,4 +44,5 @@ def unregister():
 
 # Run the script
 register()
+# test call
 bpy.ops.object.select_collision_meshes()

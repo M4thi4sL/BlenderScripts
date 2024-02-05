@@ -67,5 +67,6 @@ def unregister():
     bpy.types.MESH_MT_vertex_group_context_menu.remove(draw_func)
 
 
-if __name__ == "__main__":
-    register()
+register()
+# test call
+bpy.ops.object.vertex_group_remove_unused()

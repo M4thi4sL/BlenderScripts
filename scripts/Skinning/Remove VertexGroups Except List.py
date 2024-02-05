@@ -44,4 +44,5 @@ def unregister():
 
 
 register()
+# test call
 bpy.ops.object.remove_unwanted_vertexgroups("INVOKE_DEFAULT")

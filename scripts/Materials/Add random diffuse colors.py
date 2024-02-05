@@ -107,5 +107,5 @@ def unregister():
 
 
 register()
-# Prompt the user with the operator
+# test call
 bpy.ops.object.random_diffuse_colors("INVOKE_DEFAULT")

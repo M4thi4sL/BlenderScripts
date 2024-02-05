@@ -149,4 +149,5 @@ def unregister():
 
 
 register()
+# test call
 bpy.ops.object.create_test_scene("INVOKE_DEFAULT")

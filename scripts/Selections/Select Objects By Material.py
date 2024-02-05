@@ -44,4 +44,5 @@ def unregister():
 
 
 register()
+# test call
 bpy.ops.object.select_by_material_name("INVOKE_DEFAULT")

@@ -12,12 +12,7 @@ for s in bpy.context.object.material_slots:
     if s.material.name[-3:].isnumeric():
         # the last 3 characters are numbers
         # that indicates it might be a duplicate of another material
-        # but this is pure guesswork, so expect errors to happen!
         if s.material.name[:-4] in mat_list:
-
-            # there is a material without the numeric extension so use it
-            # this again is just guessing that we're having identical node trees here
-
             # get the material index of the 'clean' material
             index_clean = mat_list.index(s.material.name[:-4])
             index_wrong = mat_list.index(s.material.name)

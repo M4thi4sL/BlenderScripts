@@ -94,5 +94,5 @@ def unregister():
 
 register()
 
-# Prompt the user with the operator
+# test call
 bpy.ops.object.arrange_objects("INVOKE_DEFAULT")
