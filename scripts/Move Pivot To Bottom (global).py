@@ -16,5 +16,4 @@ def origin_to_bottom(ob, matrix=Matrix()):
 
 for o in bpy.context.scene.objects:
     if o.type == "MESH":
-        origin_to_bottom(o)
-        # origin_to_bottom(o, matrix=o.matrix_world) # global
+        origin_to_bottom(o, matrix=o.matrix_world)  # global
