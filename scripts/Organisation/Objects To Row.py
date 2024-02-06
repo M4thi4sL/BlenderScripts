@@ -1,6 +1,7 @@
 import bpy
 from bpy.props import FloatProperty, EnumProperty
 
+
 # Define the ObjectSpacingOperator class
 class ObjectSpacingOperator(bpy.types.Operator):
     bl_idname = "object.spacing_operator"
@@ -11,37 +12,33 @@ class ObjectSpacingOperator(bpy.types.Operator):
     additional_space: FloatProperty(
         name="Additional Space",
         description="Extra distance between objects (in meters)",
-        default=200.0,
+        default=2.0,
         min=0.0,
-        unit='LENGTH'
+        unit="LENGTH",
     )
 
     # Define the axis property
     axis: EnumProperty(
         name="Axis",
         description="Axis along which objects are spaced",
-        items=[
-            ("X", "X", "X Axis"),
-            ("Y", "Y", "Y Axis"),
-            ("Z", "Z", "Z Axis")
-        ],
-        default="X"
+        items=[("X", "X", "X Axis"), ("Y", "Y", "Y Axis"), ("Z", "Z", "Z Axis")],
+        default="X",
     )
 
     def execute(self, context):
         # Get the selected objects
         selected_objects = bpy.context.selected_objects
-        
+
         # Check if there are no selected objects
         if len(selected_objects) < 1:
-            self.report({'WARNING'}, "No objects selected. Operator canceled.")
-            return {'CANCELLED'}
+            self.report({"WARNING"}, "No objects selected. Operator canceled.")
+            return {"CANCELLED"}
 
         # Get the scene unit scale
         unit_scale = bpy.context.scene.unit_settings.scale_length
 
         # Convert additional_space to the scene unit
-        additional_space_scaled = self.additional_space# * unit_scale
+        additional_space_scaled = self.additional_space  # * unit_scale
 
         # Get the axis index
         axis_index = {"X": 0, "Y": 1, "Z": 2}[self.axis]
@@ -68,17 +65,20 @@ class ObjectSpacingOperator(bpy.types.Operator):
             # Update the distance for the next object
             distance += abs(reference_max - reference_min) + additional_space_scaled
 
-        return {'FINISHED'}
+        return {"FINISHED"}
 
     def invoke(self, context, event):
         return context.window_manager.invoke_props_dialog(self)
 
+
 # Register the operator
 bpy.utils.register_class(ObjectSpacingOperator)
+
 
 # Unregister the operator
 def unregister():
     bpy.utils.unregister_class(ObjectSpacingOperator)
 
+
 # test call
-bpy.ops.object.spacing_operator('INVOKE_DEFAULT')
+bpy.ops.object.spacing_operator("INVOKE_DEFAULT")

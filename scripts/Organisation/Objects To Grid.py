@@ -11,7 +11,7 @@ class ArrangeObjectsOperator(Operator):
     additional_space: FloatProperty(
         name="Additional Space",
         description="Additional space between objects",
-        default=100.0,
+        default=2.0,
         min=0.0,
         unit="LENGTH",
     )
